@@ -23,6 +23,21 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	// localhost:8082/auth/signup
+	/*
+	 	{
+		    "username": "hello@world.com",
+		    "password": "12345"
+		}
+	 */
+	/*
+		 {
+	    "token": null,
+	    "username": "hello@world.com",
+	    "password": null,
+	    "id": "402880858671cb15018671dbae0f0000"
+		}
+	 */
 	@PostMapping("/signup")
 	public ResponseEntity<?> registerUser(@RequestBody UserDTO userDTO){
 		try {
@@ -57,7 +72,22 @@ public class UserController {
 		
 		
 	}
+	// localhost:8082/auth/signin
 	
+	/*
+	 {
+		    "username": "hello@world.com",
+		    "password": "12345"
+		}
+	 */
+	/*
+		{
+	    "token": null,
+	    "username": "hello@world.com",
+	    "password": null,
+	    "id": "402880858671cb15018671dbae0f0000"
+		}
+	*/
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticate(@RequestBody UserDTO userDTO) {
 		UserEntity user = userService.getByCredentials(
